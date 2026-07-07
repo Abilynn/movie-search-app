@@ -20,7 +20,7 @@ experience consistent.
   Secondary Text    `text-slate-400`     `#94a3b8`
   Primary Accent    `bg-sky-500`         `#0ea5e9`
   Accent Hover      `bg-sky-400`         `#38bdf8`
-  Accent Active     `bg-sky-600`         `#0284c7`
+  Accent Focus     `bg-sky-600`         `#0284c7`
   Success           `emerald-500`        `#10b981`
   Warning           `amber-500`          `#f59e0b`
   Error             `red-500`            `#ef4444`

@@ -18,7 +18,7 @@
   /* Accent */
   --color-accent: oklch(68.5% 0.169 237.323); /* sky-500 */
   --color-accent-hover: oklch(74.6% 0.16 232.661); /* sky-400 */
-  --color-accent-active: oklch(58.8% 0.158 241.966); /* sky-600 */
+  --color-accent-focus: oklch(58.8% 0.158 241.966); /* sky-600 */
 
   /* Status */
   --color-success: oklch(69.6% 0.17 162.48); /* emerald-500 */
@@ -48,5 +48,17 @@
 
   a {
     @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .focus-ring {
+    @apply focus:outline-2
+          focus:outline-offset-2
+        focus:outline-accent-focus;
+  }
+
+  .btn-style {
+    @apply bg-accent hover:bg-accent-hover focus:bg-accent-focus
   }
 }
