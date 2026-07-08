@@ -1,6 +1,6 @@
 import logo from '../assets/images/logo.jpg';
 
-function Navbar() {
+function NavBar() {
   return (
     <nav className="px-4 h-16 bg-navbar border-b border-border">
       <div className="flex items-center justify-between max-w-5xl mx-auto h-full px-4">
@@ -25,4 +25,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavBar;

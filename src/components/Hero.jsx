@@ -1,4 +1,5 @@
 import heroBackground from "../assets/images/heroBackground.png";
+import Searchbar from "./Searchbar";
 
 function Hero() {
   return (
@@ -15,9 +16,7 @@ function Hero() {
             Discover Movies From Around the World.
           </p>
         </div>
-        <form className="mt-6 flex flex-col sm:flex-row items-center gap-4 w-full">
-          Search Bar Placeholder
-        </form>
+        <Searchbar placeholder="Search for a movie..." buttonText="Search" />
       </div>
     </section>
   );
