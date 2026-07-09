@@ -1,7 +1,11 @@
 import heroBackground from "../assets/images/heroBackground.png";
-import Searchbar from "./Searchbar";
+import SearchBar from "./SearchBar";
 
 function Hero() {
+  const handleSearch = (query) => {
+    console.log(query);
+  };
+
   return (
     <section
       className="relative min-h-[calc(100vh-14rem)] bg-cover bg-center bg-no-repeat mx-auto"
@@ -16,7 +20,10 @@ function Hero() {
             Discover Movies From Around the World.
           </p>
         </div>
-        <Searchbar placeholder="Search for a movie..." buttonText="Search" />
+        <SearchBar
+          placeholder="Search for a movie..."
+          buttonText="Search"
+          onSearch={handleSearch} />
       </div>
     </section>
   );
