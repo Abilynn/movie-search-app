@@ -1,10 +1,7 @@
 import heroBackground from "../assets/images/heroBackground.png";
 import SearchBar from "./SearchBar";
 
-function Hero() {
-  const handleSearch = (query) => {
-    console.log(query);
-  };
+function Hero({ query, onQueryChange, onSearch }) {
 
   return (
     <section
@@ -23,7 +20,9 @@ function Hero() {
         <SearchBar
           placeholder="Search for a movie..."
           buttonText="Search"
-          onSearch={handleSearch} />
+          onSearch={onSearch}
+          onQueryChange={onQueryChange}
+          query={query} />
       </div>
     </section>
   );
