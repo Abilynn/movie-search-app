@@ -1,11 +1,6 @@
-import { useState } from "react";
 
-function SearchBar({ placeholder, buttonText, onSearch }) {
-  const [query, setQuery] = useState("");
 
-  const handleChange = (event) => {
-    setQuery(event.target.value);
-  };
+function SearchBar({ placeholder, buttonText, onSearch, query, onQueryChange }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,7 +8,6 @@ function SearchBar({ placeholder, buttonText, onSearch }) {
     const trimmedQuery = query.trim();
     if (!trimmedQuery) return;
     onSearch(trimmedQuery);
-    setQuery("");
   };
 
   return (
@@ -28,7 +22,7 @@ function SearchBar({ placeholder, buttonText, onSearch }) {
         type="search"
         id="search"
         value={query}
-        onChange={handleChange}
+        onChange={onQueryChange}
         autoComplete="off"
         placeholder={placeholder}
         className="w-full flex-1 rounded-md border border-border bg-background px-4 py-2.5 focus:outline-2 focus:outline-offset-2 focus:outline-accent-focus"
