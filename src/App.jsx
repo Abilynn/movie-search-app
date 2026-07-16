@@ -2,19 +2,22 @@ import { useState } from "react";
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import { searchMovies } from "./services/movieApi";
+import MovieGrid from "./components/MovieGrid";
 
 function App() {
   const [query, setQuery] = useState("");
+  const [movies, setMovies] = useState([]);
 
   const handleQueryChange = (e) => {
     setQuery(e.target.value);
   };
 
   const handleSearch = async (searchQuery) => {
+  
     try {
-      const movies = await searchMovies(searchQuery);
+      const results = await searchMovies(searchQuery);
 
-      console.log(movies);
+      setMovies(results);
 
       setQuery("");
     } catch (error) {
@@ -30,6 +33,7 @@ function App() {
         onQueryChange={handleQueryChange}
         onSearch={handleSearch}
       />
+      <MovieGrid movies={movies} />
     </>
   );
 }
