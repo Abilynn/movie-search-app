@@ -8,6 +8,7 @@ export async function searchMovies(query) {
   try {
     const response = await fetch(url);
 
+
     if (!response.ok) {
       throw new Error(
         `Failed to fetch movies (${response.status} ${response.statusText})`,

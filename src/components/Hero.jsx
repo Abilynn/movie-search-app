@@ -5,7 +5,7 @@ function Hero({ query, onQueryChange, onSearch }) {
 
   return (
     <section
-      className="relative min-h-[calc(100vh-14rem)] bg-cover bg-center bg-no-repeat mx-auto"
+      className="relative min-h-[20rem] bg-cover bg-center bg-no-repeat mx-auto"
       style={{
         backgroundImage: `url(${heroBackground})`,
       }}
