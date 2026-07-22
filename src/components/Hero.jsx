@@ -1,7 +1,7 @@
 import heroBackground from "../assets/images/heroBackground.png";
 import SearchBar from "./SearchBar";
 
-function Hero({ query, onQueryChange, onSearch }) {
+function Hero({ query, onQueryChange, onSearch, loading }) {
 
   return (
     <section
@@ -22,7 +22,9 @@ function Hero({ query, onQueryChange, onSearch }) {
           buttonText="Search"
           onSearch={onSearch}
           onQueryChange={onQueryChange}
-          query={query} />
+          query={query}
+          loading={loading}
+        />
       </div>
     </section>
   );

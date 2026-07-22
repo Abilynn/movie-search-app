@@ -1,6 +1,6 @@
 
 
-function SearchBar({ placeholder, buttonText, onSearch, query, onQueryChange }) {
+function SearchBar({ placeholder, buttonText, onSearch, query, onQueryChange, loading }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,12 +26,14 @@ function SearchBar({ placeholder, buttonText, onSearch, query, onQueryChange }) 
         autoComplete="off"
         placeholder={placeholder}
         className="w-full flex-1 rounded-md border border-border bg-background px-4 py-2.5 focus:outline-2 focus:outline-offset-2 focus:outline-accent-focus"
+        disabled={loading}
       />
       <button
         type="submit"
-        className="focus-ring btn-style rounded-md px-4 py-2.5 transition-colors duration-200 cursor-pointer"
+        className="focus-ring btn-style rounded-md px-4 py-2.5 transition-colors duration-200 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+        disabled={loading}
       >
-        {buttonText}
+        {loading ? "Searching..." : buttonText}
       </button>
     </form>
   );
