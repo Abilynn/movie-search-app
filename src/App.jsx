@@ -7,21 +7,29 @@ import MovieGrid from "./components/MovieGrid";
 function App() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleQueryChange = (e) => {
     setQuery(e.target.value);
   };
 
   const handleSearch = async (searchQuery) => {
-  
+    setError("");
+    setLoading(true);
+    setHasSearched(true);
+    
     try {
+
       const results = await searchMovies(searchQuery);
 
       setMovies(results);
-
       setQuery("");
     } catch (error) {
-      console.error("Search failed:", error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -32,8 +40,14 @@ function App() {
         query={query}
         onQueryChange={handleQueryChange}
         onSearch={handleSearch}
+        loading={loading}
       />
-      <MovieGrid movies={movies} />
+      <MovieGrid
+        movies={movies}
+        loading={loading}
+        hasSearched={hasSearched}
+        error={error}
+      />
     </>
   );
 }
