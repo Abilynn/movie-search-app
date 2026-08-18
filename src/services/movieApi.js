@@ -18,3 +18,20 @@ export async function searchMovies(query) {
 
     return data.results;
 }
+
+
+export async function getMovieById(id) {
+  const url = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+      throw new Error(
+        `Failed to fetch movie details (${response.status} ${response.statusText})`,
+      );
+    }
+
+    const data = await response.json();
+
+    return data;
+}
