@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getMovieById } from "../services/movieApi";
+import { useFavorites } from "../context/useFavorites";
 import imageUnavailable from "../assets/images/image-unavailable.webp";
 
 function MovieDetailsPage() {
@@ -8,6 +9,8 @@ function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { isFavorite, addFavorite, removeFavorite } = useFavorites();
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -50,6 +53,8 @@ function MovieDetailsPage() {
     );
   }
 
+  const favorite = isFavorite(movie.id);
+
   const posterUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     : imageUnavailable;
@@ -77,13 +82,27 @@ function MovieDetailsPage() {
     ? `${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m`
     : "N/A";
 
-  const Rating =
+  const rating =
     movie.vote_average != null ? movie.vote_average.toFixed(1) : "N/A";
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-12">
       <div className="grid md:grid-cols-2 gap-8">
-        <div>
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => {
+              if (favorite) {
+                removeFavorite(movie.id);
+              } else {
+                addFavorite(movie);
+              }
+            }}
+            aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
+            className="absolute top-3 left-3 z-10 bg-black/70 text-white w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-accent"
+          >
+            {favorite ? "♥" : "♡"}
+          </button>
           <img
             src={posterUrl}
             alt={`${movie.title} poster`}
@@ -94,7 +113,7 @@ function MovieDetailsPage() {
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl md:text-5xl">{movie.title}</h1>
 
-          <p className="my-4 text-xl">⭐ {Rating}</p>
+          <p className="my-4 text-xl">⭐ {rating}</p>
 
           <div className="mt-6 space-y-3">
             <p>Release Date: {releaseDate}</p>
