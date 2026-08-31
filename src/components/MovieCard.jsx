@@ -48,7 +48,8 @@ function MovieCard({ movie }) {
             addFavorite(movie);
           }
         }}
-        className="absolute top-3 left-3 z-10 bg-black/70 text-white w-10 h-10 rounded-full"
+        aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
+        className="absolute top-3 left-3 z-10 bg-black/70 text-white w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-accent"
       >
         {favorite ? "♥" : "♡"}
       </button>

@@ -1,23 +1,31 @@
-import logo from '../assets/images/logo.jpg';
+import { Link } from "react-router-dom";
+import logo from "../assets/images/logo.jpg";
 
 function NavBar() {
   return (
     <nav className="px-4 h-16 bg-navbar border-b border-border">
       <div className="flex items-center justify-between max-w-5xl mx-auto h-full px-4">
         <div className="flex gap-2 items-center">
-          <a href="/" className="flex items-center gap-2">
-            <img src={logo} alt="movie search logo" className="h-10 rounded-md" />
-          <span className='text-2xl'>
-            Movie Search
-          </span>
-          </a>
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src={logo}
+              alt="movie search logo"
+              className="h-10 rounded-md"
+            />
+            <span className="text-2xl">Movie Search</span>
+          </Link>
         </div>
 
         <ul className="flex gap-4 items-center">
           <li>
-            <a href="/" className="hover:text-accent-hover focus:text-accent-focus">
+            <Link to="/" className="hover:text-accent-hover focus:text-accent-focus">
               Home
-            </a>
+            </Link>
+          </li>
+          <li>
+            <Link to="/favorites" className="hover:text-accent-hover focus:text-accent-focus">
+              Favorites
+            </Link>
           </li>
         </ul>
       </div>
