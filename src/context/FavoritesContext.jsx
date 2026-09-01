@@ -1,10 +1,38 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const FavoritesContext = createContext();
 
 export function FavoritesProvider({ children }) {
-  const [favorites, setFavorites] = useState([]);
 
+  const [favorites, setFavorites] = useState(() => {
+    try {
+      const savedFavorites = localStorage.getItem("favorites");
+
+      if (savedFavorites) {
+        const parsedFavorites = JSON.parse(savedFavorites);
+
+        if (Array.isArray(parsedFavorites)) {
+          return parsedFavorites;
+        }
+
+        return [];
+      }
+
+      return [];
+    } catch (error) {
+      console.error("Failed to load favorites:", error);
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    } catch (error) {
+      console.error("Failed to save favorites:", error);
+    }
+  }, [favorites]);
+  
   function addFavorite(movie) {
     setFavorites((currentFavorites) => {
       if (currentFavorites.some((favorite) => favorite.id === movie.id)) {
