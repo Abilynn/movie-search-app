@@ -19,9 +19,7 @@ function MovieGrid({ movies, loading, hasSearched, error }) {
 
   if (!hasSearched) {
     return (
-      <div className="flex flex-col items-center justify-center py-16 text-center">
-        <h2 className="text-2xl ">🎬 Search for your Favorite movies!</h2>
-      </div>
+      <div></div>
     );
   }
 
