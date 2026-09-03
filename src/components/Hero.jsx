@@ -12,9 +12,9 @@ function Hero({ query, onQueryChange, onSearch, loading }) {
     >
       <div className="absolute inset-0 flex flex-col items-center px-4 pt-12 bg-linear-to-b from-black/65 via-black/55 to-background">
         <div className="max-w-2xl text-center">
-          <h1 className="text-4xl md:text-6xl">Movie Search</h1>
-          <p className="mt-4 text-lg text-muted">
-            Discover Movies From Around the World.
+          <h1 className="text-4xl md:text-5xl">Find Your Next Movie</h1>
+          <p className="mt-4 text-lg text-slate-300">
+            Discover movies from around the world.
           </p>
         </div>
         <SearchBar

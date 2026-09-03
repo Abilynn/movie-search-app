@@ -6,7 +6,7 @@
   /* App */
   --color-background: oklch(12.9% 0.042 264.695); /*slate-950*/
   --color-card: oklch(20.8% 0.042 265.755); /* slate-900 */
-  --color-navbar: oklch(20.8% 0.042 265.755); /* slate-900 */
+  --color-navbar: oklch(12.9% 0.042 264.695); /*slate-950*/
 
   /* Borders */
   --color-border: oklch(27.9% 0.041 260.031); /* slate-800 */
