@@ -3,8 +3,8 @@ import logo from "../assets/images/movieSearchLogo2.png";
 
 function NavBar() {
   return (
-    <nav className="px-4 h-16 bg-navbar border-b border-border">
-      <div className="flex items-center justify-between max-w-5xl mx-auto h-full px-4">
+    <nav className="h-16 bg-navbar border-b border-border">
+      <div className="flex items-center justify-between max-w-5xl mx-auto h-full px-3 sm:px-4">
         <Link
           to="/"
           onClick={() => {
@@ -14,12 +14,12 @@ function NavBar() {
           <img
             src={logo}
             alt="movie search logo"
-            className="h-10 w-auto"
+            className="h-8 sm:h-10 w-auto"
           />
-          <span className="text-2xl">ovie Search</span>
+          <span className="text-lg sm:text-2xl whitespace-nowrap">ovie Search</span>
         </Link>
 
-        <ul className="flex gap-6 items-center text-lg">
+        <ul className="flex gap-3 sm:gap-6 items-center text-base sm:text-lg">
           <li>
             <NavLink
               to="/"

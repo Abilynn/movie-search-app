@@ -99,14 +99,14 @@ function MovieDetailsPage() {
               }
             }}
             aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
-            className="absolute top-3 left-3 z-10 bg-black/70 text-white w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-accent"
+            className="absolute top-3 left-3 z-10 bg-black/70 text-white ml-2 w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-accent"
           >
             {favorite ? "♥" : "♡"}
           </button>
           <img
             src={posterUrl}
             alt={`${movie.title} poster`}
-            className="w-full rounded-xl object-cover"
+            className="w-full max-w-xs sm:max-w-sm md:max-w-none mx-auto rounded-xl object-cover"
           />
         </div>
 
