@@ -2,7 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MovieDetailsPage from "./pages/MovieDetailsPage"
 import FavoritesPage from "./pages/FavoritesPage";
-import NavBar from "./components/NavBar";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <NavBar />
+      <Navbar />
 
       <div className="flex-1">
         <Routes>
